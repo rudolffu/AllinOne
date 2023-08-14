@@ -11,13 +11,13 @@
 
   <title>
   {{ if eq .Kind "home" }}
-      {{ .Site.Title }}
+      {{ $.Title }}
   {{ else }}
-      {{ if .Params.heading }} {{ .Params.heading }} | {{ .Site.Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}
+      {{ if .Params.heading }} {{ .Params.heading }} | {{ $.Title }} {{ else }} {{ .Title }} | {{ $.Title }} {{ end }}
   {{ end }}
   </title>
 
-  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="canonical" href="{{ .RelPermalink }}">
 
   <!-- HTTPS -->
   {{ if .Site.Params.forcehttps }}
@@ -55,9 +55,11 @@
 
 
   <!-- RSS -->
-  {{ if and .Site.Params.include_rss .RSSLink }}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  {{ end }}
+  <!-- {{ with .OutputFormats.Get "RSS" }}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Title }}" />
+  {{ end }} -->
+  <!-- {{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }} -->
+
 
   <style type="text/css">
       @media (min-width: 800px) and (max-width: 850px) {
