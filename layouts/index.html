@@ -43,7 +43,7 @@
             {{ i18n "latestPosts" }}
           </div> -->
           <div>
-              {{ range (first $latestpostscount .Site.Pages.ByPublishDate.Reverse ) }}
+              {{ range (first $latestpostscount (where .Site.Pages "Type" "!=" "index").ByPublishDate.Reverse) }}
                   {{ partial "post-card.html" . }}
               {{ end }}
               
