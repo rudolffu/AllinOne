@@ -28,6 +28,10 @@
         <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener"><i class="fab fa-instagram mr-3" aria-hidden="true"></i></a>
     {{ end }}
 
+    {{ if $.Site.Params.researchgate }}
+        <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener"><i class="fab fa-researchgate mr-3" aria-hidden="true"></i></a>
+    {{ end }}
+
     {{ if $.Site.Params.px500 }}
         <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener"><i class="fab fa-500px mr-3" aria-hidden="true"></i></a>
     {{ end }}
