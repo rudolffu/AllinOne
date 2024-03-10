@@ -33,25 +33,26 @@
       </div>
       <!-- /.Sidebar -->
 
-      <!-- Post list -->
-      <!-- <div class="pt-5 px-5 mx-5"> -->
-      <div class="col-md-9 mt-3">  
-        {{ $totalpostscount := len (.Site.RegularPages) }}
-        {{ $latestpostscount := .Site.Params.latestpostscount | default $totalpostscount }}
-        {{ if gt $latestpostscount 0 }}
-          <!-- <div class='post-heading'>
-            {{ i18n "latestPosts" }}
-          </div> -->
-          <div>
-              {{ range (first $latestpostscount (where .Site.Pages "Type" "!=" "index").ByPublishDate.Reverse) }}
-                  {{ partial "post-card.html" . }}
-              {{ end }}
-              
-          </div>
+      <!-- Recent Post list -->
+        <div class="col-md-9 mt-3">  
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "not in" (slice "index")) }}
+        <div class="container content p-3">
+        <ul>  
+        <div class="div-x">
+            <div class="post-heading">
+                Recent Posts
+            </div>
+        </div>
+        </ul>
+        {{ range $paginator.Pages }}
+            {{ partial "post-card.html" . }}
         {{ end }}
-
-      </div>
-      <!-- /.Post list -->
+        <!-- Pagination controls, centered using Bootstrap's flex utility classes -->
+        <div class="pagination pagination-outline d-flex justify-content-center">
+            {{ $paginator := .Paginate .Data.Pages.ByPublishDate.Reverse }}
+            {{ template "_internal/pagination.html" . }}
+        </div>
+        </div>
 
     </div>
   </main>
