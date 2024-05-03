@@ -16,6 +16,7 @@
         <!-- Post list -->
         <!-- <div class="content"> -->
         <div class="col-md-9 mt-3">
+            {{ $paginator := .Paginate (where .Data.Pages "Type" "not in" (slice "index")) }}
       {{ else }}
         <div class="container content p-3">  
         <!-- <div class="container content mt-3">   -->
