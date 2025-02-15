@@ -8,7 +8,7 @@ publishdir                 = "public"
 enableEmoji                = true
 hasCJKLanguage             = true
 summaryLength              = 200
-Paginate                   = 3
+paginate                   = 3
 
 theme                      = "AllinOne"
 title                      = "Yuming Fu's Homepage"

@@ -85,16 +85,20 @@
       <!-- /.Avatar -->
 
       <div class="col-12 col-sm-7 text-left pl-5">
-        <!-- Description -->
+        <!-- Author Name as a clickable header -->
         <a href="{{ .Site.BaseURL }}">
           <h1 class="display-4 mb-2 mt-2 h1">
             <strong>{{ $.Site.Params.author }}</strong>
           </h1>
         </a>
-        {{ range $.Site.Params.description }}
-        <p class="mb-0 p" style="font-size: 1.250rem; font-weight: normal;">
-            {{ . }}
-        </p>
+      
+        <!-- Split the description string on commas and output each item on its own line -->
+        {{ $desc := $.Site.Params.description }}
+        {{ $lines := split $desc "," }}
+        {{ range $lines }}
+          <p class="mb-0 p" style="font-size: 1.250rem; font-weight: normal;">
+            {{ trim . " " }}
+          </p>
         {{ end }}
         <!-- /.Description -->
 
