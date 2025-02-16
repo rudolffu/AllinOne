@@ -3,7 +3,6 @@
 {{ end }}
 
 {{ $terms := uniq ($.Scratch.Get "series") }}
-
 {{ $kind := .Kind }}
 
 {{ if or (gt (len $terms) 0) (eq $kind "home") }}
@@ -19,11 +18,10 @@
         </a>
       </div>
      
-      <div class="post-meta" >
+      <div class="post-meta">
         {{ if eq $kind "home" }}
           <!-- Homepage -->
           {{ range first 5 .ByCount }}
-
             {{ $title := add .Name ( add (add " (" (.Count | string)) ")" ) | title }}
             {{ $url := add ("series/" | absLangURL) (.Name | urlize) }}
             {{ $data :=  (where $.Site.Data.series.series ".name" .Name) }}
@@ -36,9 +34,7 @@
               <!-- Not in Data -->
               {{ partial "sidebar-card.html" (dict "url" $url "title" $title "img_path" ( "img/default.jpg" | absLangURL ) "text" nil ) }}
             {{ end }}
-          
           {{ end }}
-
         {{ else }}
           <!-- Others -->
           {{ range first 5 (where .ByCount "Name" "in" $terms) }}
@@ -46,9 +42,6 @@
           {{ end }}
         {{ end }}
       </div>
-    
-      
     </div>
   {{ end }}
 {{ end }}
-  

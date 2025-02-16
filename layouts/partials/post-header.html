@@ -1,18 +1,29 @@
-<div class="post-header text-center" >
+<div class="post-header text-center">
   <ul class="post-meta li-x">
     {{ if .Params.categories }}
       {{ range .Params.categories }}
-        <li><a href="{{ "categories/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> {{ . }} </a></li>
+        <li>
+          <a href="{{ "categories/" | absLangURL }}{{ . | urlize }}">
+            <i class="fas fa-folder-open pr-1" aria-hidden="true"></i> {{ . }}
+          </a>
+        </li>
       {{ end }}
     {{ end }}
     {{ if .Params.series }}
       {{ range .Params.series }}
-        <li><a href="{{ "series/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>{{ . }}</a></li>
+        <li>
+          <a href="{{ "series/" | absLangURL }}{{ . | urlize }}">
+            <i class="fas fa-bookmark pr-1" aria-hidden="true"></i> {{ . }}
+          </a>
+        </li>
       {{ end }}
     {{ end }}
   </ul>
 
-  <div class="px-4 post-heading">{{ .Title }}</div>
+  <!-- Use a heading tag for the title -->
+  <header class="px-4 post-heading">
+    <h1>{{ .Title }}</h1>
+  </header>
 
   <ul class="post-meta li-x mt-1">
     {{ if and .Site.Params.dateformfull .Site.Params.dateform }}
@@ -20,7 +31,6 @@
     {{ else }}
       <li>{{ .Date.Format "Jan 2, 2006" }}</li>
     {{ end }}
-
     {{ if not .Site.Params.noshowreadtime }}
       <li class="middot"></li>
       <li>{{ i18n "readingTime" .ReadingTime }}</li>
@@ -28,8 +38,7 @@
   </ul>
   {{ with .Params.img }}
     <div class="view">
-      <img src="{{ . | absURL }}" />
+      <img src="{{ . | absURL }}" alt="{{ $.Title }}" />
     </div>
   {{ end }}
-
 </div>

@@ -1,5 +1,4 @@
 <div class="post-wrapper white-bg post-card">
-  
   <a href="{{ .Permalink }}">
     <div class="post-header text-center">
       <div class="px-4 post-heading">{{ .Title }}</div>
@@ -9,7 +8,6 @@
         {{ else }}
           <li>{{ .Date.Format "Jan 2, 2006" }}</li>
         {{ end }}
-    
         {{ if not .Site.Params.noshowreadtime }}
           <li class="middot"></li>
           <li>{{ i18n "readingTime" .ReadingTime }}</li>
@@ -17,40 +15,45 @@
       </ul>
     </div>
     {{ with .Params.img }}
-    
       <div class="view">
-        <img src="{{ . | absURL }}" />
+        <img src="{{ . | absURL }}" alt="{{ $.Title }}">
       </div>
     {{ end }}
-
     {{ if .Params.summary }}
-      {{ .Params.summary| plainify | htmlUnescape  }}
+      {{ .Params.summary | plainify | htmlUnescape }}
     {{ else }}
       {{ .Summary | plainify | htmlUnescape }}......
     {{ end }}
   </a>
-
-  
-  
   <div class="post-meta li-x mt-2 div-x">
     <div>
       {{ if .Params.categories }}
-        {{ range .Params.categories }}
-          <li><a href="{{ "categories/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> {{ . }} </a></li>
-        {{ end }}
+        <ul>
+          {{ range .Params.categories }}
+            <li>
+              <a href="{{ "categories/" | absLangURL }}{{ . | urlize }}">
+                <i class="fas fa-folder-open pr-1" aria-hidden="true"></i> {{ . }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
       {{ end }}
       {{ if .Params.series }}
-        {{ range .Params.series }}
-          <li><a href="{{ "series/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>{{ . }}</a></li>
-        {{ end }}
+        <ul>
+          {{ range .Params.series }}
+            <li>
+              <a href="{{ "series/" | absLangURL }}{{ . | urlize }}">
+                <i class="fas fa-bookmark pr-1" aria-hidden="true"></i> {{ . }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
       {{ end }}
     </div>
-   
     <div>
       {{ if .Params.tags }}
         {{ partial "tags.html" . }}
       {{ end }}
     </div>
   </div>
-
 </div>

@@ -1,6 +1,6 @@
-
+{{/* Collect all tags (lowercased) from pages that have .Params.tags */}}
 {{ range where .Site.Pages ".Params.tags" "ne" nil }}
-  {{ $.Scratch.Add "tags"  (apply .Params.tags "lower" ".") }}
+  {{ $.Scratch.Add "tags" (apply .Params.tags "lower" ".") }}
 {{ end }}
 
 {{ $terms := uniq ($.Scratch.Get "tags") }}
@@ -17,17 +17,15 @@
           </span>
         </a>
       </div>
-
-      <div class="li-x post-meta tags-md" style="margin-left: -8px;">
-        
-        
-        {{ range first 20 (where .ByCount "Name" "in" $terms)  }}
-            <li><a href="{{ "tags/" | absLangURL }}{{ .Name | urlize }}" role="button"><span>{{ .Name }} ({{ .Count }})</span></a></li>
-          
+      <ul class="li-x post-meta tags-md" style="margin-left: -8px;">
+        {{ range first 20 (where .ByCount "Name" "in" $terms) }}
+          <li>
+            <a href="{{ "tags/" | absLangURL }}{{ .Name | urlize }}" role="button">
+              <span>{{ .Name }} ({{ .Count }})</span>
+            </a>
+          </li>
         {{ end }}
-      </div>
+      </ul>
     </div>
-
-    
   {{ end }}
 {{ end }}

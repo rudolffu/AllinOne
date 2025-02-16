@@ -2,21 +2,15 @@
 {{ $pathURL := cond (gt (len .Site.Params.slidesDirPathURL) 0) $.Site.Params.slidesDirPathURL "img/header-slides" }} 
 
 {{ $files := readDir $path  }}
-{{ $files := where $files  "Name" "ne" ".DS_Store" }}
-
+{{ $files := where $files "Name" "ne" ".DS_Store" }}
 
 <!-- Carousel Wrapper -->
-<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" >  <!--data-pause="true" data-interval="300000"-->
-
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel">
+  
   <!-- Indicators -->
   <ol class="carousel-indicators">
-
     {{ range $index, $element := $files }}
-      {{ if eq $index 0 }}
-        <li data-target="#site-header" data-slide-to="{{ $index }}" class="active"></li>
-      {{ else }}
-        <li data-target="#site-header" data-slide-to="{{ $index  }}"></li>
-      {{ end }}
+      <li data-target="#site-header" data-slide-to="{{ $index }}" {{ if eq $index 0 }}class="active"{{ end }}></li>
     {{ end }}
   </ol>
   <!-- /.Indicators -->
@@ -25,74 +19,54 @@
   <div class="carousel-inner" role="listbox">
     {{ range $index, $element := $files }}
       {{ if eq $index 0 }}
-
         <!-- First slide -->
         <div class="carousel-item active">
           <div class="view" style="background-image: url('{{ $pathURL | absURL }}/{{ .Name }}'); background-repeat: no-repeat; background-size: cover;">
-
-            <!-- Mask & flexbox options-->
             <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-
-              <!-- Content -->
-              <!-- <div class="text-center white-text wow fadeIn">
-                
-              </div> -->
-              <!-- /.Content -->
-
+              <!-- Optional content could go here -->
             </div>
-            <!-- /.Mask & flexbox options-->
-
           </div>
         </div>
         <!-- /.First slide -->
       {{ else }}
-
-        <!-- Second slide -->
+        <!-- Other slides -->
         <div class="carousel-item">
           <div class="view" style="background-image: url('{{ $pathURL | absURL }}/{{ .Name }}'); background-repeat: no-repeat; background-size: cover;">
-
-            <!-- Mask & flexbox options -->
             <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-
-            
-
+              <!-- Optional content could go here -->
             </div>
-            <!-- /.Mask & flexbox options -->
-
           </div>
         </div>
-        <!-- /.Second slide -->
       {{ end }}
     {{ end }}
-
-  
   </div>
   <!-- /.Slides -->
 
-  <!-- Content -->
+  <!-- Carousel Content -->
   <div class="carousel-content text-center white-text wow fadeIn">
     <div class="row mx-0 headfont mb-5 pb-3">
-      <!-- Avatar -->
+      <!-- Avatar Column -->
       <div class="col-12 col-sm-5 align-middle">
         <a href="{{ .Site.BaseURL }}">
           {{ if $.Site.Params.avatar }}
-            <img class="pull-right avatar avatar-lg " src="{{ $.Site.Params.avatar | absURL }}" alt="" >
+            <img class="pull-right avatar avatar-lg" src="{{ $.Site.Params.avatar | absURL }}" alt="Avatar of {{ $.Site.Params.author }}">
           {{ else if $.Site.Params.faviconfile }}
-            <img class="pull-right avatar avatar-lg " src="{{ $.Site.Params.faviconfile | absURL }}" alt="" >
+            <img class="pull-right avatar avatar-lg" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon">
           {{ end }}
         </a>
       </div>
-      <!-- /.Avatar -->
+      <!-- /.Avatar Column -->
 
+      <!-- Author & Description Column -->
       <div class="col-12 col-sm-7 text-left pl-5">
-        <!-- Author Name as a clickable header -->
+        <!-- Author Name -->
         <a href="{{ .Site.BaseURL }}">
           <h1 class="display-4 mb-2 mt-2 h1">
             <strong>{{ $.Site.Params.author }}</strong>
           </h1>
         </a>
       
-        <!-- Split the description string on commas and output each item on its own line -->
+        <!-- Split Description (each on its own line) -->
         {{ $desc := $.Site.Params.description }}
         {{ $lines := split $desc "," }}
         {{ range $lines }}
@@ -100,59 +74,68 @@
             {{ trim . " " }}
           </p>
         {{ end }}
-        <!-- /.Description -->
 
-        <!-- Ref Icon -->
+        <!-- Social/Reference Icons -->
         <div class="mt-2" style="font-size: 2rem; color: white;">
             {{ if $.Site.Params.github }}
-              <a href="{{ $.Site.Params.github }}" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+              <a href="{{ $.Site.Params.github }}" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fab fa-github pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
             {{ if $.Site.Params.linkedin }}
-              <a href="{{ $.Site.Params.linkedin }}" target="_blank" rel="noopener"><i class="fab fa-linkedin pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-
             {{ if $.Site.Params.facebook }}
-              <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-
             {{ if $.Site.Params.googleplus }}
-            <a href="{{ $.Site.Params.googleplus }}" target="_blank" rel="noopener"><i class="fab fa-google-plus pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.googleplus }}" target="_blank" rel="noopener" aria-label="Google+">
+                <i class="fab fa-google-plus pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-
             {{ if $.Site.Params.twitter }}
-                <a href="{{ $.Site.Params.twitter }}" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.twitter }}" target="_blank" rel="noopener" aria-label="Twitter">
+                <i class="fab fa-twitter pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-
             {{ if $.Site.Params.instagram }}
-                <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener"><i class="fab fa-instagram pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-
             {{ if $.Site.Params.researchgate }}
-                <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener"><i class="fab fa-researchgate pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener" aria-label="ResearchGate">
+                <i class="fab fa-researchgate pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-    
             {{ if $.Site.Params.px500 }}
-                <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener"><i class="fab fa-500px pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener" aria-label="500px">
+                <i class="fab fa-500px pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-    
-        
             {{ if $.Site.Params.email }}
-                <a href="mailto:{{ $.Site.Params.email }}"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+              <a href="mailto:{{ $.Site.Params.email }}" aria-label="Email">
+                <i class="far fa-envelope-open pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-    
             {{ if and $.Site.Params.include_rss $.RSSLink }}
-                <a href="{{ $.RSSLink }}"><i class="fas fa-rss pr-1" aria-hidden="true"></i></a>
+              <a href="{{ $.RSSLink }}" aria-label="RSS">
+                <i class="fas fa-rss pr-1" aria-hidden="true"></i>
+              </a>
             {{ end }}
-
         </div>
-        <!-- /.Ref Icon -->
-
+        <!-- /.Social Icons -->
       </div>
+      <!-- /.Author & Description Column -->
     </div>
   </div>
-  <!-- /.Content -->
+  <!-- /.Carousel Content -->
 
-  <!-- Controls -->
+  <!-- Carousel Controls -->
   <a class="carousel-control-prev" href="#site-header" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -161,7 +144,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-  <!-- /.Controls -->
+  <!-- /.Carousel Controls -->
 
 </div>
 <!-- /.Carousel Wrapper -->
