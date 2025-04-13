@@ -127,6 +127,11 @@
                 <i class="fas fa-rss pr-1" aria-hidden="true"></i>
               </a>
             {{ end }}
+            {{ if $.Site.Params.gitee }}
+              <a href="{{ $.Site.Params.gitee }}" target="_blank" rel="noopener" aria-label="Gitee">
+                <img src="{{ "img/svg/Logo_gitee_white.svg" | absURL }}" alt="Gitee" style="height:1em; margin-bottom:0.5rem;" aria-hidden="true">
+              </a>
+            {{ end }}
         </div>
         <!-- /.Social Icons -->
       </div>
