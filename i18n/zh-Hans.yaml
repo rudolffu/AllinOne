@@ -19,3 +19,15 @@
 
 - id: postCount
   translation: "共有{{ .Count }}篇文章"
+
+- id: recentPosts
+  translation: "近期文章"
+
+- id: categories
+  translation: "分类"
+
+- id: featuredTags
+  translation: "热门标签"
+
+- id: recommendedSeries
+  translation: "推荐系列"

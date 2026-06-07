@@ -40,7 +40,7 @@
         <ul>  
         <div class="div-x">
             <div class="post-heading">
-                Recent Posts
+                {{ i18n "recentPosts" }}
             </div>
         </div>
         </ul>
@@ -49,7 +49,6 @@
         {{ end }}
         <!-- Pagination controls, centered using Bootstrap's flex utility classes -->
         <div class="pagination pagination-outline d-flex justify-content-center">
-            {{ $paginator := .Paginate .Data.Pages.ByPublishDate.Reverse }}
             {{ template "_internal/pagination.html" . }}
         </div>
         </div>

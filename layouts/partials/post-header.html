@@ -42,7 +42,7 @@
   </ul>
   {{ with .Params.img }}
     <div class="view">
-      <img src="{{ . | absURL }}" alt="{{ $.Title }}" />
+      <img src="{{ . | absURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async" />
     </div>
   {{ end }}
 </div>

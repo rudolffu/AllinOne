@@ -19,7 +19,7 @@
         </div>
       {{ else }}
         <div class="carousel-item">
-          <div class="view" style="background-image: url('{{ $pathURL | absURL }}/{{ .Name | relURL }}'); background-repeat: no-repeat; background-size: cover;">
+          <div class="view" style="background-image: url('{{ $pathURL | absURL }}/{{ .Name }}'); background-repeat: no-repeat; background-size: cover;">
             <div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div>
           </div>
         </div>
@@ -35,9 +35,9 @@
       <div class="col-12 col-sm-5 align-middle">
         <a href="{{ .Site.BaseURL }}">
           {{ if $.Site.Params.avatar }}
-            <img class="pull-right avatar avatar-md" src="{{ $.Site.Params.avatar | absURL }}" alt="Avatar">
+            <img class="pull-right avatar avatar-md" src="{{ $.Site.Params.avatar | absURL }}" alt="Avatar" loading="lazy" decoding="async">
           {{ else if $.Site.Params.faviconfile }}
-            <img class="pull-right avatar avatar-md" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon">
+            <img class="pull-right avatar avatar-md" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon" loading="lazy" decoding="async">
           {{ end }}
         </a>
       </div>
@@ -50,28 +50,28 @@
         </a>
         <div class="mt-2" style="font-size: 1rem; color: white;">
           {{ if $.Site.Params.github }}
-            <a href="{{ $.Site.Params.github }}" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.github }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.linkedin }}
-            <a href="{{ $.Site.Params.linkedin }}" target="_blank" rel="noopener"><i class="fab fa-linkedin pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.facebook }}
-            <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.googleplus }}
-            <a href="{{ $.Site.Params.googleplus }}" target="_blank" rel="noopener"><i class="fab fa-google-plus pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.googleplus }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-plus pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.twitter }}
-            <a href="{{ $.Site.Params.twitter }}" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.twitter }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.instagram }}
-            <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener"><i class="fab fa-instagram pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.researchgate }}
-            <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener"><i class="fab fa-researchgate pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-researchgate pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.px500 }}
-            <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener"><i class="fab fa-500px pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-500px pr-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.email }}
             <a href="mailto:{{ $.Site.Params.email }}"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>

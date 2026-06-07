@@ -16,13 +16,13 @@
     </div>
     {{ with .Params.img }}
       <div class="view">
-        <img src="{{ . | absURL }}" alt="{{ $.Title }}">
+        <img src="{{ . | absURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async">
       </div>
     {{ end }}
     {{ if .Params.summary }}
-      {{ .Params.summary | plainify | htmlUnescape }}
+      {{ .Params.summary | plainify }}
     {{ else }}
-      {{ .Summary | plainify | htmlUnescape }}......
+      {{ .Summary | plainify }}......
     {{ end }}
   </a>
   <div class="post-meta li-x mt-2 div-x">

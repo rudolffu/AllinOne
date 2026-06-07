@@ -1,8 +1,8 @@
 {{ range where .Site.Pages ".Params.series" "ne" nil }}
-  {{ $.Scratch.Add "series" (apply .Params.series "lower" ".") }}
+  {{ $.Store.Add "series" (apply .Params.series "lower" ".") }}
 {{ end }}
 
-{{ $terms := uniq ($.Scratch.Get "series") }}
+{{ $terms := uniq ($.Store.Get "series") }}
 {{ $kind := .Kind }}
 
 {{ if or (gt (len $terms) 0) (eq $kind "home") }}
@@ -13,7 +13,7 @@
         <a href="{{ "series/" | absLangURL }}">
           <span class="font-weight-bold text-uppercase post-meta">
             <i class="fas fa-bookmark pr-1" aria-hidden="true"></i> 
-            Recommended Series
+            {{ i18n "recommendedSeries" }}
           </span>
         </a>
       </div>
@@ -24,7 +24,7 @@
           {{ range first 5 .ByCount }}
             {{ $title := add .Name ( add (add " (" (.Count | string)) ")" ) | title }}
             {{ $url := add ("series/" | absLangURL) (.Name | urlize) }}
-            {{ $data :=  (where $.Site.Data.series.series ".name" .Name) }}
+            {{ $data :=  (where hugo.Data.series.series ".name" .Name) }}
             {{ if gt (len $data) 0 }}   
               <!-- In Data  -->
               {{ range $data }}

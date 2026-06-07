@@ -1,9 +1,9 @@
 {{/* Collect all tags (lowercased) from pages that have .Params.tags */}}
 {{ range where .Site.Pages ".Params.tags" "ne" nil }}
-  {{ $.Scratch.Add "tags" (apply .Params.tags "lower" ".") }}
+  {{ $.Store.Add "tags" (apply .Params.tags "lower" ".") }}
 {{ end }}
 
-{{ $terms := uniq ($.Scratch.Get "tags") }}
+{{ $terms := uniq ($.Store.Get "tags") }}
 
 {{ if gt (len $terms) 0 }}
   <hr>
@@ -13,7 +13,7 @@
         <a href="{{ "tags/" | absLangURL }}">
           <span class="font-weight-bold text-uppercase post-meta">
             <i class="fas fa-tags pr-1" aria-hidden="true"></i> 
-            Featured Tags
+            {{ i18n "featuredTags" }}
           </span>
         </a>
       </div>

@@ -23,3 +23,15 @@
   translation: 
     one: "One post"
     other: "{{ .Count }} posts"
+
+- id: recentPosts
+  translation: "Recent Posts"
+
+- id: categories
+  translation: "Categories"
+
+- id: featuredTags
+  translation: "Featured Tags"
+
+- id: recommendedSeries
+  translation: "Recommended Series"
