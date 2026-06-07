@@ -16,7 +16,11 @@
 <!-- Highlight -->
 {{ if .Site.Params.highlightjs }}  
   <script defer src="{{ "js/vendors/highlight.pack.js" | absURL }}"></script>
-  <script>hljs.highlightAll();</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      hljs.highlightAll();
+    });
+  </script>
 {{ end }}
 
 <!-- KaTeX -->
