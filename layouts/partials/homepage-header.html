@@ -48,10 +48,10 @@
       <!-- Avatar Column -->
       <div class="col-12 col-sm-5 align-middle">
         <a href="{{ .Site.BaseURL }}">
-          {{ if $.Site.Params.faviconfile }}
-            <img class="pull-right avatar avatar-lg" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon" loading="lazy" decoding="async">
-          {{ else if $.Site.Params.avatar }}
+          {{ if $.Site.Params.avatar }}
             <img class="pull-right avatar avatar-lg" src="{{ $.Site.Params.avatar | absURL }}" alt="Avatar of {{ $.Site.Params.author }}" loading="lazy" decoding="async">
+          {{ else if $.Site.Params.faviconfile }}
+            <img class="pull-right avatar avatar-lg" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon" loading="lazy" decoding="async">
           {{ end }}
         </a>
       </div>
