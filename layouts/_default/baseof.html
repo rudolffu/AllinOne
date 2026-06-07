@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.Language.Lang | default "zh-Hans" }}">
   {{ partial "head.html" . }}
-  <body class="bg-light" data-bs-spy="scroll" data-bs-target="#page-scrollspy" data-bs-offset="90">
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
     {{ block "header" . }}
       {{ partial "site-navbar.html" . }} 
       {{ partial "page-header.html" . }}  

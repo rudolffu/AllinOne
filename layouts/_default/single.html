@@ -5,7 +5,7 @@
       {{ if .Params.toc }}
         <div class="col-md-10">
       {{ else }}
-        <div class="container pe-5">
+        <div class="container pr-5">
       {{ end }}
           <article class="z-depth-1 post-wrapper white-bg single-post">
             {{ partial "post-header.html" . }}
@@ -30,18 +30,18 @@
                   <a href="{{ .PrevInSection.Permalink }}" class="post-meta">
                     {{ i18n "previousPost" }}
                     <div class="pt-2 pb-5 d-flex">
-                      <i class="fas fa-angle-left text-grey fw-bold me-2 active-color"></i>
+                      <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
                       <span>{{ .PrevInSection.Title }}</span>
                     </div>
                   </a>
                 {{ end }}
               </div>
-              <div class="col-md-6 text-end">
+              <div class="col-md-6 text-right">
                 {{ if .NextInSection }}
                   <a href="{{ .NextInSection.Permalink }}" class="post-meta">
                     {{ i18n "nextPost" }}
                     <div class="pt-2 pb-5 flex-reverse">
-                      <i class="fas fa-angle-right text-grey fw-bold ms-2 active-color"></i>
+                      <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
                       <span>{{ .NextInSection.Title }}</span>
                     </div>
                   </a>

@@ -2,12 +2,12 @@
 <script defer src="{{ "js/vendors/jquery/jquery-3.7.1.min.js" | absURL }}"></script>
 <script defer src="{{ "js/vendors/jquery/jquery.smooth-scroll.min.js" | absURL }}"></script>
 
-<!-- Bootstrap 5 Bundle (includes Popper) -->
-<script defer src="{{ "js/vendors/bootstrap5/bootstrap.bundle.min.js" | absURL }}"></script>
+<!-- Popper & Bootstrap Bundle (includes Popper) -->
+<script defer src="{{ "js/vendors-extensions/bootstrap4/bootstrap.bundle.min.js" | absURL }}"></script>
 
 <!-- Other Vendors -->
 <script defer src="{{ "js/vendors/holder.min.js" | absURL }}"></script>
-<script defer src="{{ "js/vendors/wow.min.js" | absURL }}"></script>
+<script defer src="{{ "js/vendors/mdb/mdb.min.js" | absURL }}"></script>
 
 <!-- Main Script -->
 <script defer src="{{ "js/main.js" | absURL }}"></script>
@@ -29,21 +29,7 @@
   </script>
 {{ end }}
 
-<!-- Animations -->
+<!-- MDB Animations -->
 <script>
   new WOW().init();
-</script>
-
-<!-- Scrolling navbar (replaces MDB) -->
-<script>
-  var navbar = document.querySelector('.scrolling-navbar');
-  if (navbar) {
-    window.addEventListener('scroll', function () {
-      if (window.pageYOffset > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  }
 </script>

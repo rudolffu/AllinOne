@@ -4,7 +4,7 @@
       {{ range .Params.categories }}
         <li>
           <a href="{{ "categories/" | absLangURL }}{{ . | urlize }}">
-            <i class="fas fa-folder-open pe-1" aria-hidden="true"></i> {{ . }}
+            <i class="fas fa-folder-open pr-1" aria-hidden="true"></i> {{ . }}
           </a>
         </li>
       {{ end }}
@@ -13,7 +13,7 @@
       {{ range .Params.series }}
         <li>
           <a href="{{ "series/" | absLangURL }}{{ . | urlize }}">
-            <i class="fas fa-bookmark pe-1" aria-hidden="true"></i> {{ . }}
+            <i class="fas fa-bookmark pr-1" aria-hidden="true"></i> {{ . }}
           </a>
         </li>
       {{ end }}
