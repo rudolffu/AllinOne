@@ -1,13 +1,14 @@
 <!-- jQuery -->
 <script defer src="{{ "js/vendors/jquery/jquery-3.7.1.min.js" | absURL }}"></script>
-<script defer src="{{ "js/vendors/jquery/jquery.smooth-scroll.min.js" | absURL }}"></script>
 
-<!-- Popper & Bootstrap Bundle (includes Popper) -->
-<script defer src="{{ "js/vendors-extensions/bootstrap4/bootstrap.bundle.min.js" | absURL }}"></script>
+<!-- MDB Standard (includes Bootstrap 5 + MDB) -->
+<script defer src="{{ "js/vendors/mdb-ui-kit/mdb.umd.min.js" | absURL }}"></script>
 
 <!-- Other Vendors -->
 <script defer src="{{ "js/vendors/holder.min.js" | absURL }}"></script>
-<script defer src="{{ "js/vendors/mdb/mdb.min.js" | absURL }}"></script>
+
+<!-- Smooth Scroll (standalone, jQuery-based) -->
+<script defer src="{{ "js/vendors/jquery/jquery.smooth-scroll.min.js" | absURL }}"></script>
 
 <!-- Main Script -->
 <script defer src="{{ "js/main.js" | absURL }}"></script>
@@ -29,7 +30,15 @@
   </script>
 {{ end }}
 
-<!-- MDB Animations -->
+<!-- MDB Initialization -->
 <script>
-  new WOW().init();
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize animations (replaces WOW.js)
+    document.querySelectorAll('.wow').forEach(function (el) {
+      el.classList.add('animate__animated');
+      if (!el.classList.contains('animate__fadeIn')) {
+        el.classList.add('animate__fadeIn');
+      }
+    });
+  });
 </script>

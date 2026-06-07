@@ -5,7 +5,7 @@
 {{ $files := where $files "Name" "ne" ".DS_Store" }}
 
 <!-- Carousel Wrapper -->
-<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;">
+<div id="site-header" class="carousel slide carousel-fade" data-bs-ride="carousel" style="height: 18rem;">
   <!-- Slides -->
   <div class="carousel-inner" role="listbox">
     {{ range $index, $element := $files }}
@@ -35,14 +35,14 @@
       <div class="col-12 col-sm-5 align-middle">
         <a href="{{ .Site.BaseURL }}">
           {{ if $.Site.Params.avatar }}
-            <img class="pull-right avatar avatar-md" src="{{ $.Site.Params.avatar | absURL }}" alt="Avatar" loading="lazy" decoding="async">
+            <img class="float-end avatar avatar-md" src="{{ $.Site.Params.avatar | absURL }}" alt="Avatar" loading="lazy" decoding="async">
           {{ else if $.Site.Params.faviconfile }}
-            <img class="pull-right avatar avatar-md" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon" loading="lazy" decoding="async">
+            <img class="float-end avatar avatar-md" src="{{ $.Site.Params.faviconfile | absURL }}" alt="Favicon" loading="lazy" decoding="async">
           {{ end }}
         </a>
       </div>
       <!-- Site Title and Social Links -->
-      <div class="col-12 col-sm-7 text-left pl-2">
+      <div class="col-12 col-sm-7 text-start ps-2">
         <a href="{{ .Site.BaseURL }}">
           <h1 class="mb-2 h1" style="font-weight: 300;">
             <strong>{{ $.Site.Title }}</strong>
@@ -50,31 +50,31 @@
         </a>
         <div class="mt-2" style="font-size: 1rem; color: white;">
           {{ if $.Site.Params.github }}
-            <a href="{{ $.Site.Params.github }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.github }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.linkedin }}
-            <a href="{{ $.Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.facebook }}
-            <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.googleplus }}
-            <a href="{{ $.Site.Params.googleplus }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-plus pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.googleplus }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-plus pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.twitter }}
-            <a href="{{ $.Site.Params.twitter }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.twitter }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.instagram }}
-            <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.researchgate }}
-            <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-researchgate pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.researchgate }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-researchgate pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.px500 }}
-            <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-500px pr-1" aria-hidden="true"></i></a>
+            <a href="{{ $.Site.Params.px500 }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-500px pe-1" aria-hidden="true"></i></a>
           {{ end }}
           {{ if $.Site.Params.email }}
-            <a href="mailto:{{ $.Site.Params.email }}"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            <a href="mailto:{{ $.Site.Params.email }}"><i class="far fa-envelope-open pe-1" aria-hidden="true"></i></a>
           {{ end }}
         </div>
       </div>
