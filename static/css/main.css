@@ -428,6 +428,7 @@ Markdown
 /* enclosed by 3 backticks (```) */
 .markdown pre {
   display: block;
+  position: relative;
   margin-top: 1rem;
   margin-bottom: 2rem;
   padding: 1rem;
@@ -442,6 +443,33 @@ Markdown
 
 .markdown pre code {
   padding: 0;
+}
+
+.markdown .copy-code-button {
+  position: absolute;
+  top: .45rem;
+  right: .45rem;
+  padding: .15rem .5rem;
+  border: 1px solid var(--grey-l3);
+  border-radius: .2rem;
+  background: rgba(255, 255, 255, .92);
+  color: var(--text-grey);
+  cursor: pointer;
+  font-size: .75rem;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity .15s ease-in-out, color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.markdown pre:hover .copy-code-button,
+.markdown .copy-code-button:focus {
+  opacity: 1;
+}
+
+.markdown .copy-code-button:hover,
+.markdown .copy-code-button.copied {
+  border-color: var(--active-color);
+  color: var(--active-color);
 }
 
 .markdown p {
@@ -510,6 +538,188 @@ Markdown
 .markdown .no-border img {
   box-shadow: none;
   -webkit-box-shadow: none;
+}
+
+.markdown figure {
+  margin: 1.5rem auto 2rem;
+  text-align: center;
+}
+
+.markdown figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+.markdown figcaption {
+  max-width: 90%;
+  margin: .65rem auto 0;
+  color: var(--text-grey);
+  font-size: .9rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.markdown figcaption strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.markdown .figure-row {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.markdown .figure-row img {
+  flex: 0 1 calc((100% - 2rem) / 3);
+  width: calc((100% - 2rem) / 3);
+  min-width: 0;
+  height: auto;
+}
+
+.markdown .book-hub {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+}
+
+.markdown .book-hub-item {
+  display: grid;
+  grid-template-columns: minmax(130px, 190px) 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem;
+  color: inherit;
+  border: 1px solid var(--grey-l3);
+  border-radius: .35rem;
+  background: #fff;
+}
+
+.markdown .book-hub-item:hover,
+.markdown .book-hub-item:focus {
+  color: inherit;
+  text-decoration: none;
+  border-color: var(--text-light);
+}
+
+.markdown .book-hub-cover-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .45rem;
+}
+
+.markdown .book-hub-cover-grid img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #fff;
+}
+
+.markdown .book-cover img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
+}
+
+.markdown .book-hub-icon {
+  display: flex;
+  min-height: 120px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-grey);
+  border: 1px solid var(--grey-l3);
+  border-radius: .35rem;
+  background: var(--grey-l4);
+  font-size: 3rem;
+}
+
+.markdown .book-hub h3,
+.markdown .book-info h3 {
+  margin-top: 0;
+}
+
+.markdown .book-list {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.markdown .book-list-item {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--grey-l3);
+}
+
+.markdown .book-list-item:last-child {
+  border-bottom: 0;
+}
+
+.markdown .book-cover {
+  display: block;
+}
+
+.markdown .book-subtitle,
+.markdown .book-meta {
+  color: var(--text-grey);
+}
+
+.markdown .outreach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 1.75rem 0;
+}
+
+.markdown .outreach-talk {
+  overflow: hidden;
+  border: 1px solid var(--grey-l3);
+  border-radius: .35rem;
+  background: #fff;
+}
+
+.markdown .outreach-talk img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.markdown .outreach-talk-body {
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.markdown .outreach-talk h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.markdown .outreach-meta {
+  color: var(--text-grey);
+  font-size: .9rem;
+}
+
+@media (max-width: 575px) {
+  .markdown .book-hub-item,
+  .markdown .book-list-item {
+    grid-template-columns: 1fr;
+  }
+
+  .markdown .book-cover {
+    max-width: 260px;
+  }
 }
 
 /*
